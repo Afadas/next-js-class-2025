@@ -1,0 +1,1 @@
+# next-js-class-2025
