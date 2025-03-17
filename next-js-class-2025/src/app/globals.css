@@ -3,6 +3,8 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --foreground-rgb: 0, 0, 0;
+  --background-rgb: 236, 236, 236;
 }
 
 @theme inline {
@@ -20,7 +22,260 @@
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
+  background: rgb(var(--background-rgb));
+  color: rgb(var(--foreground-rgb));
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.gradient-bg {
+  background: linear-gradient(45deg, #4a90e2, #712cf9);
+  transition: all 0.3s ease;
+}
+
+.nav-button {
+  transition: transform 0.3s ease;
+}
+
+.nav-button:hover {
+  transform: scale(1.05);
+}
+
+/* Base centered-name styles */
+.centered-name {
+  position: fixed;
+  z-index: 20;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 0.5s ease;
+}
+
+.centered-name.moved {
+  top: 2rem;
+  left: 2rem;
+  transform: none;
+}
+
+/* Blank page specific styles */
+.blank-page .centered-name {
+  position: fixed;
+  z-index: 20;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.blank-page .centered-name.moved {
+  top: 2rem;
+  left: 2rem;
+  transform: none;
+}
+
+/* Name container styles */
+.blank-page .name-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 20;
+  width: max-content;
+}
+
+.blank-page .name-container.moved {
+  top: 2rem;
+  left: 2rem;
+  transform: none;
+}
+
+/* Base nav-menu styles */
+.nav-menu {
+  position: fixed;
+  left: 2rem;
+  top: 13rem;
+  z-index: 10;
+  transition: opacity 0.5s ease, filter 0.5s ease;
+  filter: blur(4px);
+}
+
+.nav-menu:hover {
+  filter: blur(0);
+}
+
+/* Blank page specific nav-menu styles */
+.blank-page .nav-menu {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.nav-menu.visible {
+  opacity: 1;
+  filter: blur(0);
+  pointer-events: auto;
+}
+
+.content-area {
+  opacity: 1; /* Ensure the content area is visible */
+  transition: opacity 0.5s ease;
+}
+
+.social-icon {
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+  transform: translateY(-2px);
+}
+
+/* Page Transition Animations */
+/* Remove unnecessary transition animations for page changes */
+.content-container {
+  position: fixed;
+  left: calc(300px + 2rem); /* 300px from menubar (which is at 2rem) */
+  right: 100px; /* 300px from right edge */
+  top: 120px; /* Space for the name at top */
+  bottom: 100px; /* 200px from bottom */
+  background-color: #f3f4f6;
+  border-radius: 8px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #cbd5e0 #f3f4f6;
+  padding: 2rem;
+  opacity: 0;
+  animation: fadeIn 0.4s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Add fade out animation */
+.content-container.exit {
+  animation: fadeOutDown 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes fadeOutDown {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+}
+
+/* Smooth transition for content changes */
+.content-container > * {
+  opacity: 0;
+  transform: translateY(10px);
+  animation: contentFadeIn 0.4s ease-out 0.2s forwards;
+}
+
+@keyframes contentFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Keep existing scrollbar styles */
+.content-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.content-container::-webkit-scrollbar-track {
+  background: #f3f4f6;
+}
+
+.content-container::-webkit-scrollbar-thumb {
+  background-color: #cbd5e0;
+  border-radius: 4px;
+}
+
+/* Project cards grid layout */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  padding: 1rem;
+}
+
+.project-card {
+  background: linear-gradient(to bottom, #ffffff, #e0e0e0);
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.project-card-content {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 100%;
+}
+
+.project-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.project-date {
+  font-size: 1rem;
+  color: #666;
+  margin-top: 0.5rem;
+}
+
+/* Add staggered animation for grid items */
+.projects-grid > * {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: gridItemFadeIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.projects-grid > *:nth-child(1) { animation-delay: 0.1s; }
+.projects-grid > *:nth-child(2) { animation-delay: 0.2s; }
+.projects-grid > *:nth-child(3) { animation-delay: 0.3s; }
+.projects-grid > *:nth-child(4) { animation-delay: 0.4s; }
+
+@keyframes gridItemFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.centered-position {
+  position: relative;
+  z-index: 20;
+}
+
+.moved {
+  position: fixed;
+  top: 2rem;
+  left: 2rem;
+  z-index: 20;
+}
+
