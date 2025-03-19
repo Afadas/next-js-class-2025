@@ -3,6 +3,7 @@ import { useEffect, useState, useRef } from 'react';
 import Menubar from "@/components/menubar";
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
+import YouTube from 'react-youtube';
 
 const ModelViewer = dynamic(
   () => import('../components/ModelViewer').then((mod) => mod.default),
@@ -74,15 +75,17 @@ export default function Home() {
       date: "13/2/2025",
       description: "Short project description",
       details: "Detailed information about Project A.",
-      modelPath: "/models/testcube.gltf"
+      modelPath: "/models/testcube.gltf",
+      videoId: "dQw4w9WgXcQ" // Example YouTube video ID
     },
     {
       id: 2,
-      title: "Project B",
-      date: "13/2/2025",
-      description: "Short project description",
-      details: "Detailed information about Project B.",
-      modelPath: "/models/testreal.gltf"
+      title: "Emperor Coleoptera",
+      date: "5/9/2024",
+      description: "Biocreation Rhinoceros Beetle Lighter",
+      details: "This is solo project for Biocreation class. The project is about creating a lighter that is inspired by the Rhinoceros Beetle. The lighter is designed to be a collectible item that is both functional and aesthetically pleasing.",
+      modelPath: "/models/testreal.gltf",
+      videoId: "O58xQcuhS8M" // Example YouTube video ID
     },
     {
       id: 3,
@@ -141,6 +144,11 @@ export default function Home() {
                         <ModelViewer modelPath={project.modelPath} isThumb={false} />
                       </div>
                     )}
+                    {project.videoId && (
+                      <div className="video-container">
+                        <YouTube videoId={project.videoId} />
+                      </div>
+                    )}
                     <button className="close-button" onClick={handleCloseClick}></button>
                   </div>
                 )}
@@ -155,10 +163,15 @@ export default function Home() {
               <p className="project-date">{projects.find(p => p.id === expandedProject).date}</p>
               <p className="project-description">{projects.find(p => p.id === expandedProject).description}</p>
               <div className="project-details" onClick={(e) => e.stopPropagation()}>
-                <p>{projects.find(p => p.id === expandedProject).title}</p>
+                <p>{projects.find(p => p.id === expandedProject).details}</p>
                 {projects.find(p => p.id === expandedProject).modelPath && (
                   <div className="model-viewer-container">
                     <ModelViewer modelPath={projects.find(p => p.id === expandedProject).modelPath} isThumb={false} />
+                  </div>
+                )}
+                {projects.find(p => p.id === expandedProject).videoId && (
+                  <div className="video-container">
+                    <YouTube videoId={projects.find(p => p.id === expandedProject).videoId} />
                   </div>
                 )}
                 <button className="close-button" onClick={handleCloseClick}></button>
