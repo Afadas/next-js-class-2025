@@ -21,7 +21,7 @@ export default function Contact() {
           <h1 className="text-4xl font-bold mb-8 text-center text-gray-800">Contact Me</h1>
           <div className="flex justify-center space-x-8">
             <a 
-              href="https://github.com/YourGithubUsername" 
+              href="https://github.com/Afadas" 
               className="social-icon hover:scale-110 transition-transform" 
               target="_blank"
               rel="noopener noreferrer"
@@ -29,7 +29,7 @@ export default function Contact() {
               <i className="fab fa-github text-5xl text-gray-700 hover:text-gray-900"></i>
             </a>
             <a 
-              href="https://linkedin.com/in/YourLinkedInUsername" 
+              href="https://www.linkedin.com/in/cha-j-412a44305/" 
               className="social-icon hover:scale-110 transition-transform" 
               target="_blank"
               rel="noopener noreferrer"
@@ -37,13 +37,13 @@ export default function Contact() {
               <i className="fab fa-linkedin text-5xl text-[#0A66C2] hover:text-[#004182]"></i>
             </a>
             <a 
-              href="mailto:your.email@example.com" 
+              href="mailto:ffck.8256@gmail.com" 
               className="social-icon hover:scale-110 transition-transform"
             >
               <i className="fas fa-envelope text-5xl text-gray-700 hover:text-gray-900"></i>
             </a>
             <a 
-              href="https://itch.io/YourItchioUsername" 
+              href="https://a1198.itch.io/" 
               className="social-icon hover:scale-110 transition-transform" 
               target="_blank"
               rel="noopener noreferrer"
@@ -53,7 +53,7 @@ export default function Contact() {
           </div>
           <div className="mt-8 text-center text-gray-600">
             <p className="mb-2">Feel free to reach out!</p>
-            <p>I'm always open to discussing new projects and opportunities.</p>
+            <p>I'm always open to discussing new projects and opportunities. I'm broke pls hire me.</p>
           </div>
         </div>
       </div>
