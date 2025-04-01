@@ -4,6 +4,7 @@ import Menubar from "@/components/menubar";
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
 import YouTube from 'react-youtube';
+import Image from 'next/image';
 
 const ModelViewer = dynamic(
   () => import('../components/ModelViewer').then((mod) => mod.default),
@@ -85,21 +86,36 @@ export default function Home() {
       description: "Biocreation Rhinoceros Beetle Lighter",
       details: "This is solo project for Biocreation class. The project is about creating a lighter that is inspired by the Rhinoceros Beetle. The lighter is designed to be a collectible item that is both functional and aesthetically pleasing.",
       modelPath: "/models/testreal.gltf",
-      videoId: "O58xQcuhS8M" // Example YouTube video ID
+      videoId: "O58xQcuhS8M", // Example YouTube video ID
+      imagePath: "/1.png"
     },
     {
       id: 3,
-      title: "Project C",
-      date: "13/2/2025",
-      description: "Short project description",
-      details: "Detailed information about Project C."
+      title: "High school get point!",
+      date: "4/3/2024",
+      description: "the gamification project. Work on the showing models in modeling & rendering.",
+      details: "High school get point! the gamification project. Work on the showing models in modeling & rendering."
     },
     {
       id: 4,
-      title: "Project D",
-      date: "13/2/2025",
-      description: "Short project description",
-      details: "Detailed information about Project D."
+      title: "Triangle Strategy",
+      date: "22/11/2023",
+      description: "What if Yves Behar project in scissor.",
+      details: "What if Yves Behar project in scissor. Work on model & 3d printing process."
+    },
+    {
+      id: 5,
+      title: "Koh Kret Community design",
+      date: "25/4/2024",
+      description: "Koh Kret space design for enhancing old cultural.",
+      details: "Koh Kret space design for enhancing old cultural in new way of storytelling. Work on the showing models in modeling & rendering."
+    },
+    {
+      id: 6,
+      title: "Koh Kret Community design",
+      date: "25/4/2024",
+      description: "Koh Kret space design for enhancing old cultural.",
+      details: "Koh Kret space design for enhancing old cultural in new way of storytelling. Work on the showing models in modeling & rendering."
     }
     // Add more projects as needed
   ];
@@ -139,6 +155,17 @@ export default function Home() {
                 {expandedProject === project.id && (
                   <div className="project-details" onClick={(e) => e.stopPropagation()}>
                     <p>{project.title}</p>
+                    {project.imagePath && (
+                      <div className="image-container">
+                        <Image 
+                          src={project.imagePath}
+                          alt={project.title}
+                          width={800}
+                          height={600}
+                          className="project-image"
+                        />
+                      </div>
+                    )}
                     {project.modelPath && (
                       <div className="model-viewer-container">
                         <ModelViewer modelPath={project.modelPath} isThumb={false} />
@@ -164,6 +191,17 @@ export default function Home() {
               <p className="project-description">{projects.find(p => p.id === expandedProject).description}</p>
               <div className="project-details" onClick={(e) => e.stopPropagation()}>
                 <p>{projects.find(p => p.id === expandedProject).details}</p>
+                {projects.find(p => p.id === expandedProject).imagePath && (
+                  <div className="image-container">
+                    <Image 
+                      src={projects.find(p => p.id === expandedProject).imagePath}
+                      alt={projects.find(p => p.id === expandedProject).title}
+                      width={800}
+                      height={600}
+                      className="project-image"
+                    />
+                  </div>
+                )}
                 {projects.find(p => p.id === expandedProject).modelPath && (
                   <div className="model-viewer-container">
                     <ModelViewer modelPath={projects.find(p => p.id === expandedProject).modelPath} isThumb={false} />
