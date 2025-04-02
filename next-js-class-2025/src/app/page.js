@@ -114,10 +114,10 @@ export default function Home() {
     },
     {
       id: 6,
-      title: "Koh Kret Community design",
-      date: "25/4/2024",
-      description: "Koh Kret space design for enhancing old cultural.",
-      details: "Koh Kret space design for enhancing old cultural in new way of storytelling. Work on the showing models in modeling & rendering."
+      title: "Oldschool Brownies",
+      date: "9/2/2025",
+      description: "Oldschool Brownies project in bussiness innovation class.",
+      details: "Oldschool Brownies project in bussiness innovation class. Work on the showing models in modeling & rendering.",
     }
     // Add more projects as needed
   ];

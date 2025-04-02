@@ -31,11 +31,12 @@ export default function About() {
           <div className="mb-8">
             <h2 className="text-2xl font-semibold text-gray-800">Activities</h2>
             <ul className="list-disc list-inside text-lg text-gray-600">
-              <li>What if Yves Behar project in scissor. Work on model & 3d printing process. FOUR-DIMENSIONAL DESIGN BASICS class</li>
-              <li>Monday Coffin immersive experience sleeping capsule project. Work on models in modeling & rendering. FORM-RELATED DESIGN class</li>
-              <li>Jingu Mastery the Art toy project. Work on model & 3d printing process. DIGITAL TECHNOLOGY FOR DESIGN class</li>
-              <li>High school get point! the gamification project. Work on models in modeling & rendering. SPACE AND TIME-RELATED DESIGN class</li>
-              <li>Koh Kret space design for enhancing old cultural in new way of storytelling. Work on the showing models in modeling & rendering. SPACE AND TIME-RELATED DESIGN class</li>
+              {/* eslint-disable-next-line react/no-unescaped-entities */}
+              <li>What if Yves Behar project in scissor. Work on model &amp; 3d printing process. FOUR-DIMENSIONAL DESIGN BASICS class</li>
+              <li>Monday Coffin immersive experience sleeping capsule project. Work on models in modeling &amp; rendering. FORM-RELATED DESIGN class</li>
+              <li>Jingu Mastery the Art toy project. Work on model &amp; 3d printing process. DIGITAL TECHNOLOGY FOR DESIGN class</li>
+              <li>High school get point! the gamification project. Work on models in modeling &amp; rendering. SPACE AND TIME-RELATED DESIGN class</li>
+              <li>Koh Kret space design for enhancing old cultural in new way of storytelling. Work on the showing models in modeling &amp; rendering. SPACE AND TIME-RELATED DESIGN class</li>
               <li>SketchUp Festival 2023 Design CONTEST 2023 Participated</li>
               <li>SCGP 2024 Participated</li>
               <li>Product UX/UI Design Program with KASIKORN Business + Technology Group</li>
