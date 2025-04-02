@@ -87,14 +87,16 @@ export default function Home() {
       details: "This is solo project for Biocreation class. The project is about creating a lighter that is inspired by the Rhinoceros Beetle. The lighter is designed to be a collectible item that is both functional and aesthetically pleasing.",
       modelPath: "/models/testreal.gltf",
       videoId: "O58xQcuhS8M", // Example YouTube video ID
-      imagePath: "/1.png"
+      imagePath: "/pictures/1.png"
     },
     {
       id: 3,
       title: "High school get point!",
       date: "4/3/2024",
       description: "the gamification project. Work on the showing models in modeling & rendering.",
-      details: "High school get point! the gamification project. Work on the showing models in modeling & rendering."
+      details: "High school get point! the gamification project. Work on the showing models in modeling & rendering.",
+      modelPath: "/models/highscore.gltf",
+
     },
     {
       id: 4,

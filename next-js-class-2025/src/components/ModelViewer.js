@@ -1,6 +1,6 @@
 'use client';
 import { Canvas, useFrame } from '@react-three/fiber';
-import { useGLTF, OrbitControls } from '@react-three/drei';
+import { useGLTF, OrbitControls, Environment, Stage } from '@react-three/drei';
 import { Suspense, useRef } from 'react';
 
 function Model({ modelPath, isThumb }) {
@@ -24,19 +24,20 @@ export default function ModelViewer({ modelPath, isThumb = false }) {
   } : {
     width: '100%',
     height: '100%',
-    background: '#transparent'
+    background: 'transparent'
   };
 
   return (
     <div style={canvasStyle}>
       <Canvas
-        camera={{ position: [5, 5, 5], fov: 45 }}
+        camera={{ position: [15, 15, 15], fov: 45 }}
         style={{ background: 'transparent' }}
       >
         <Suspense fallback={null}>
-          <ambientLight intensity={0.5} />
-          <directionalLight position={[10, 10, 5]} intensity={1} />
-          <Model modelPath={modelPath} isThumb={isThumb} />
+          <Stage environment="city" intensity={1} adjustCamera={!isThumb}>
+            <Model modelPath={modelPath} isThumb={isThumb} />
+          </Stage>
+          <Environment preset="city" />
           {!isThumb && <OrbitControls />}
         </Suspense>
       </Canvas>

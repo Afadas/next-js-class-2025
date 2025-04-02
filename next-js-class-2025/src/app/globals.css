@@ -351,7 +351,7 @@ body {
   position: absolute;
   top: 1rem;
   right: 1rem;
-  background: #e0e0e0;
+  background: transparent;
   border: none;
   border-radius: 50%;
   width: 40px;
@@ -365,7 +365,7 @@ body {
 .close-button::before {
   content: '✕';
   font-size: 20px;
-  color: #333;
+  color: #363636;
 }
 
 .image-container {
